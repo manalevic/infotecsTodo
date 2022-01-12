@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import AddTodoWindow from './components/AddTodoWindow/AddTodoWindow';
+import Header from './components/Header/Header';
+import TodosDesc from './components/TodosDesc/TodosDesc';
+import TodosList from './components/TodosList/TodosList';
 
 function App() {
+  const [todos,setTodos] = useState([])
+
+  const addTask = (taskName, taskDesc) => {
+    if (taskName) {
+      const newTask = {
+        id: new Date().getTime(),
+        name: taskName,
+        desc: taskDesc ? taskDesc : "",
+        progress: false
+      }
+      setTodos([...todos, newTask])
+      console.log(todos)
+    }
+  }
+
+  const removeTask = () => {
+
+  }
+
+  const toggleTaskProgress = () => {
+
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <TodosList todos={todos} removeTask={removeTask} 
+      toggleTaskProgress={toggleTaskProgress}/>
+      <TodosDesc/>
+      <AddTodoWindow addTask={addTask}/>
     </div>
   );
 }

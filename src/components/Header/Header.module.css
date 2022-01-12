@@ -1,0 +1,6 @@
+.header {
+    grid-area: head;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
