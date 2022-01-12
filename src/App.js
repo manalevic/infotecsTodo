@@ -14,28 +14,38 @@ function App() {
         id: new Date().getTime(),
         name: taskName,
         desc: taskDesc ? taskDesc : "",
-        progress: false
+        progress: false,
+        isChosen: false
       }
       setTodos([...todos, newTask])
-      console.log(todos)
     }
   }
 
-  const removeTask = () => {
-
+  const removeTask = (id) => {
+    setTodos([...todos.filter((todo) => todo.id !== id)])
   }
 
   const toggleTaskProgress = () => {
 
   }
 
+  const toggleIsChosen = (id) => {
+    setTodos([...todos.map((todo) => {
+      if (todo.isChosen === true) {
+        return { ...todo, isChosen: false }
+      } else if (todo.id === id) {
+        return { ...todo, isChosen: true }
+      }
+      return todo;
+    })])
+  }
 
   return (
     <div className="App">
       <Header />
       <TodosList todos={todos} removeTask={removeTask} 
-      toggleTaskProgress={toggleTaskProgress}/>
-      <TodosDesc/>
+     toggleIsChosen={toggleIsChosen}/>
+      <TodosDesc todos={todos} />
       <AddTodoWindow addTask={addTask}/>
     </div>
   );

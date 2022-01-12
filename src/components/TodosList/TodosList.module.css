@@ -1,3 +1,7 @@
 .todosList {
     grid-area: todosList;
 }
+
+.chosenTodo {
+    color: red;
+}
