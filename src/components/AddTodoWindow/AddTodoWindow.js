@@ -18,6 +18,7 @@ const AddTodoWindow = (props) => {
         props.addTask(taskNameValue, taskDescValue)
         setTaskNameValue("")
         setTaskDescValue("")
+        props.toggleAddTaskWindow(false)
     }
 
     return (
