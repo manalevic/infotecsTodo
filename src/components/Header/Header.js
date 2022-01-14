@@ -6,7 +6,7 @@ const Header = (props) => {
         <div className={s.header}>
             <div>TodoList</div>
             <div>Поиск</div>
-            <div onClick={() => props.toggleAddTaskWindow(true)}>Добавить</div>
+            <button onClick={() => props.toggleAddTaskWindow(true)}>Добавить</button>
         </div>
     )
 }

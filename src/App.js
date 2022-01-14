@@ -15,8 +15,8 @@ function App() {
       const newTask = {
         id: new Date().getTime(),
         name: taskName,
-        desc: taskDesc ? taskDesc : "",
-        progress: false,
+        desc: taskDesc ? taskDesc : ``,
+        progress: 1,   // 1 - ожидает, 2 - в процессе, 3 - выполнена
         isChosen: false
       }
       setTodos([...todos, newTask])
@@ -36,15 +36,18 @@ function App() {
     setTodos([...todos.filter((todo) => todo.id !== id)])
   }
 
-  const toggleTaskProgress = () => {
-
+  const toggleTaskProgress = (id, progressValue) => {
+    setTodos([...todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, progress: +progressValue }
+      }
+      return todo;
+    })])
   }
 
 
   const toggleAddTaskWindow = (condition) => {
     setAddTaskCondition(condition)
-    console.log(todos)
-    console.log(todos.filter((todo) => todo.isChosen === true))
   }
 
   const toggleIsChosen = (id) => {
@@ -63,7 +66,7 @@ function App() {
       <Header toggleAddTaskWindow={toggleAddTaskWindow} />
       <TodosList todos={todos} removeTask={removeTask}
         toggleIsChosen={toggleIsChosen} />
-      <TodosEditing todos={todos} editTask={editTask} removeTask={removeTask}/>
+      <TodosEditing todos={todos} editTask={editTask} removeTask={removeTask} toggleTaskProgress={toggleTaskProgress}/>
       {addTaskCondition && <AddTodoWindow toggleAddTaskWindow={toggleAddTaskWindow} addTask={addTask} />}
     </div>
   );

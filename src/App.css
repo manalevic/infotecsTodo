@@ -383,12 +383,15 @@ img {
 }
 
 .App {
+    background-color: #424242;
+    color: white;
     margin: 0 auto;
     max-width: 1200px;
+    padding: 10px 40px;
     display: grid;
     grid-template-areas: "head head"
                        "todosList  todosEditing";
-    grid-template-rows: 40px 1fr;
+    grid-template-rows: 50px 500px;
     grid-template-columns: 20% 80%;
     gap: 10px;
 }

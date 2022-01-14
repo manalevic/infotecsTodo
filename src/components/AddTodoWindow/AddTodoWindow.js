@@ -2,8 +2,8 @@ import { useState } from 'react'
 import s from './AddTodoWindow.module.css'
 
 const AddTodoWindow = (props) => {
-    const [taskNameValue, setTaskNameValue] = useState('')
-    const [taskDescValue, setTaskDescValue] = useState('')
+    const [taskNameValue, setTaskNameValue] = useState(``)
+    const [taskDescValue, setTaskDescValue] = useState(``)
 
     const onChangeNameValue = (e) => {
         setTaskNameValue(e.currentTarget.value)
@@ -36,6 +36,7 @@ const AddTodoWindow = (props) => {
                     placeholder="Описание" />
                 <button>Добавить задачу</button>
             </form>
+            <button onClick={() => props.toggleAddTaskWindow(false)}>X</button>
         </div>
     )
 }

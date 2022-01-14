@@ -1,7 +1,44 @@
 .todosList {
     grid-area: todosList;
+    border: solid 1px gray;
+    border-radius: 7px;
+    padding: 10px;
 }
 
-.chosenTodo {
-    color: red;
+.todosList div {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.active {
+    background-color: #5e5a5a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis; 
+   
+}
+
+.color1 {
+    color: gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis; 
+}
+
+.color2 {
+    color: rgb(98, 186, 236);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis; 
+}
+
+.color3 {
+    color: green;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis; 
 }
