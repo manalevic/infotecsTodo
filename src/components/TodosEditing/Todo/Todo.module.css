@@ -30,7 +30,7 @@
     height: 97%;
     grid-template-rows: 10% 90%;
     gap: 3%;
-    white-space: pre-line;
+    white-space: pre-line; /* what*/
 }
 
 .content .item {
@@ -53,6 +53,7 @@
     border: solid 1px gray;
     border-radius: 7px;
     padding: 10px;
+    resize: none;
 }
 
 .editMode button {

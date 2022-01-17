@@ -1,3 +1,61 @@
-.todosList {
-    grid-area: todosList;
+.addTodoWindow {
+    position: absolute;
+    left:50%; 
+    top:50%; 
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 35%;
+    padding: 10px;
+    background-color: #424242;
+    border: solid 1px gray;
+    border-radius: 7px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form .textarea {
+    height: 80%
+}
+
+.form .input {
+    height: 20%
+}
+
+.item{
+    border: solid 1px gray;
+    border-radius: 7px;
+    padding: 10px;
+    resize: none;  
+    height: 30%; 
+}
+
+.button{
+    font-size: 18px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: #828282;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.button:focus, .button:hover,.button:disabled {
+    background-color: #5e5a5a;
+}
+
+.closeButton {
+    padding: 2px 7px;
+    align-self: flex-end;
+    border-radius: 15px;
+    border: none;
+    background-color: #828282;
+    color: white;
+    margin-bottom: 10px;
 }

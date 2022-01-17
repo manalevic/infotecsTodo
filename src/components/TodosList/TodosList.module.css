@@ -3,11 +3,19 @@
     border: solid 1px gray;
     border-radius: 7px;
     padding: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.todosList div {
+.todosList li {
     cursor: pointer;
     margin-bottom: 5px;
+    -webkit-user-select: none;  /* prevent */
+    -moz-user-select: none;     /* highlighting */
+    -ms-user-select: none;     /* stuff */
+    border-radius: 7px;
+    padding: 3px;
+    
 }
 
 .active {
@@ -16,7 +24,6 @@
     overflow: hidden;
     text-overflow: ellipsis; 
     -o-text-overflow: ellipsis; 
-   
 }
 
 .color1 {
@@ -41,4 +48,12 @@
     overflow: hidden;
     text-overflow: ellipsis; 
     -o-text-overflow: ellipsis; 
+}
+
+.search {
+    border: solid 1px gray;
+    border-radius: 7px;
+    padding: 4px;
+    font-size: 15px;
+    margin-bottom: 10px;
 }

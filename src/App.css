@@ -383,6 +383,7 @@ img {
 }
 
 .App {
+    position: relative;
     background-color: #424242;
     color: white;
     margin: 0 auto;

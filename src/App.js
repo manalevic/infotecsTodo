@@ -9,7 +9,6 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [addTaskCondition, setAddTaskCondition] = useState(false);
   
-
   const addTask = (taskName, taskDesc) => {
     if (taskName) {
       const newTask = {
@@ -45,7 +44,6 @@ function App() {
     })])
   }
 
-
   const toggleAddTaskWindow = (condition) => {
     setAddTaskCondition(condition)
   }
@@ -60,6 +58,8 @@ function App() {
       return todo;
     })])
   }
+
+
 
   return (
     <div className="App">

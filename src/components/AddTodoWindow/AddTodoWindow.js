@@ -23,20 +23,22 @@ const AddTodoWindow = (props) => {
 
     return (
         <div className={s.addTodoWindow}>
-            <form onSubmit={onSubmitForm}>
+            <button className={s.closeButton} onClick={() => props.toggleAddTaskWindow(false)}>x</button>
+            <form onSubmit={onSubmitForm} className={s.form}>
                 <input
+                    className={s.item+ " " + s.input}
                     value={taskNameValue}
                     type="text"
                     onChange={onChangeNameValue}
-                    placeholder="Название задачи" />
+                    placeholder="Название" />
                 <textarea
+                    className={s.item + " " + s.textarea }
                     value={taskDescValue}
                     type="text"
                     onChange={onChangeDescValue}
                     placeholder="Описание" />
-                <button>Добавить задачу</button>
+                <button className={s.button}>Добавить задачу</button>
             </form>
-            <button onClick={() => props.toggleAddTaskWindow(false)}>X</button>
         </div>
     )
 }
