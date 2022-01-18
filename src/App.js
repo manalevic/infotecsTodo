@@ -6,9 +6,41 @@ import TodosEditing from './components/TodosEditing/TodosEditing';
 import TodosList from './components/TodosList/TodosList';
 
 function App() {
+  makeResizableDiv()
+
   const [todos, setTodos] = useState([]);
   const [addTaskCondition, setAddTaskCondition] = useState(false);
-  
+
+  function makeResizableDiv() {
+    
+    
+    document.addEventListener("DOMContentLoaded", () => {   // ждем пока html прогрузится, что можно было использовать его элементы
+      const element = document.querySelector('.App');
+      const resizer = document.querySelector('#resizer')
+      resizer && resizer.addEventListener('mousedown', function (e) {
+        e.preventDefault()
+        window.addEventListener('mousemove', resize)
+        window.addEventListener('mouseup', stopResize)
+        console.log(element.clientWidth)
+      })
+
+      function resize(e) {
+        if (e.pageX - element.offsetLeft > element.clientWidth * 0.4) {       // максимальный ограничитель
+          element.style.gridTemplateColumns = `${element.clientWidth * 0.4 + 'px'} 10px auto`
+        } else if (e.pageX - element.offsetLeft < element.clientWidth * 0.08) {       // минимальный ограничитель
+          element.style.gridTemplateColumns = `${element.clientWidth * 0.08 + 'px'} 10px auto`
+        } else {
+          element.style.gridTemplateColumns = `${e.pageX - element.offsetLeft + 'px'} 10px auto`     // пользовательский размер 
+        }
+
+      }
+
+
+      function stopResize() {
+        window.removeEventListener('mousemove', resize)
+      }
+    })
+  }
   const addTask = (taskName, taskDesc) => {
     if (taskName) {
       const newTask = {
@@ -61,12 +93,14 @@ function App() {
 
 
 
+
   return (
     <div className="App">
       <Header toggleAddTaskWindow={toggleAddTaskWindow} />
       <TodosList todos={todos} removeTask={removeTask}
         toggleIsChosen={toggleIsChosen} />
-      <TodosEditing todos={todos} editTask={editTask} removeTask={removeTask} toggleTaskProgress={toggleTaskProgress}/>
+      <div id="resizer"></div>
+      <TodosEditing todos={todos} editTask={editTask} removeTask={removeTask} toggleTaskProgress={toggleTaskProgress} />
       {addTaskCondition && <AddTodoWindow toggleAddTaskWindow={toggleAddTaskWindow} addTask={addTask} />}
     </div>
   );

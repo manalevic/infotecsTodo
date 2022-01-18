@@ -388,11 +388,15 @@ img {
     color: white;
     margin: 0 auto;
     max-width: 1200px;
-    padding: 10px 40px;
+    padding: 10px 0;
     display: grid;
-    grid-template-areas: "head head"
-                       "todosList  todosEditing";
-    grid-template-rows: 50px 500px;
-    grid-template-columns: 20% 80%;
-    gap: 10px;
+    grid-template-areas: "head head head"
+                       "todosList resizer todosEditing";
+    grid-template-rows: 60px 500px;
+    grid-template-columns: 15% 10px auto;
+}
+
+#resizer {
+    grid-area: resizer;
+    cursor: col-resize;
 }
