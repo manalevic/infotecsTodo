@@ -3,16 +3,16 @@
     border: solid 1px gray;
     border-radius: 7px;
     padding: 10px;
-    overflow-x: hidden;
+    overflow-x: hidden;  /* Прокрутка, если много заметок */
     overflow-y: auto;
 }
 
 .todosList li {
     cursor: pointer;
     margin-bottom: 5px;
-    -webkit-user-select: none;  /* prevent */
-    -moz-user-select: none;     /* highlighting */
-    -ms-user-select: none;     /* stuff */
+    -webkit-user-select: none;  /* Выключаем выделение */
+    -moz-user-select: none;     /* по двойному  */
+    -ms-user-select: none;     /* нажатию. */
     border-radius: 7px;
     padding: 3px;
     
@@ -30,8 +30,8 @@
     color: gray;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
-    -o-text-overflow: ellipsis; 
+    text-overflow: ellipsis; /* Обрезаем конец наименования заметки, */
+    -o-text-overflow: ellipsis; /* если оно не влезает. */
 }
 
 .color2 {
@@ -56,6 +56,6 @@
     padding: 4px;
     font-size: 15px;
     margin-bottom: 10px;
-    width: 100%;
+    width: 100%; /* Чтобы input не вылазил за пределы род. блока.*/
 }
 

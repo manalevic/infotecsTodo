@@ -378,22 +378,22 @@ html {
 
 
 img {
-    max-width: 100%; 
+    max-width: 100%;  /* картинка скейлится по диву, но не больше своего размера */
     height: auto; 
 }
 
 .App {
-    position: relative;
+    position: relative;  /* это для окошка добавления задачи, оно будет позиционироваться абсолютно */
     background-color: #424242;
     color: white;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1000px;
     padding: 10px 0;
     display: grid;
     grid-template-areas: "head head head"
                        "todosList resizer todosEditing";
     grid-template-rows: 60px 500px;
-    grid-template-columns: 15% 10px auto;
+    grid-template-columns: 15% 10px auto;  /* Я убрал gap, вместо него теперь resizer, и margin-bottom(header) в 10px */
 }
 
 #resizer {
